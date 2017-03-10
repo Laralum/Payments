@@ -48,6 +48,7 @@ class PaymentsServiceProvider extends ServiceProvider
 
         if (!$this->app->routesAreCached()) {
             require __DIR__.'/Routes/web.php';
+            require __DIR__.'/Routes/api.php';
         }
 
         $this->loadMigrationsFrom(__DIR__.'/Migrations');

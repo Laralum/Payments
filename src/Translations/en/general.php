@@ -8,6 +8,19 @@ return [
     |--------------------------------------------------------------------------
     */
 
+    'payments'              => 'Payments',
+    'payments_desc'         => 'You can view and manage your income and check detailed statistics.',
+    'pending_balance'       => 'Pending Balance',
+    'available_balance'     => 'Available Balance',
+    'home'                  => 'Home',
+    'charges'               => 'Charges',
+    'amount'                => 'Amount',
+    'status'                => 'Status',
+    'date'                  => 'Date',
+    'paid'                  => 'Paid',
+    'not_paid'              => 'Not Paid',
+    'no_keys_set'           => 'You need to setup both of the stipe keys to see this page.',
+
     'stripe_key'            => 'Stripe Publishable Key',
     'stripe_key_ph'         => 'Enter your stripe publishable key',
     'stripe_key_hp'         => 'https://dashboard.stripe.com/account/apikeys',

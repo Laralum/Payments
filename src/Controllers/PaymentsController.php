@@ -10,6 +10,16 @@ use Illuminate\Http\Request;
 class PaymentsController extends Controller
 {
     /**
+     * Display the payments dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+     public function index()
+     {
+         return view('laralum_payments::index', ['settings' => Settings::first()]);
+     }
+
+    /**
      * Save the payments settings.
      *
      * @param \Illuminate\Http\Request $request
@@ -22,17 +32,6 @@ class PaymentsController extends Controller
         Settings::first()->update($request->all());
 
         return redirect()->route('laralum::settings.index', ['p' => 'Payments'])->with('success', __('laralum_payments::general.updated_settings'));
-    }
-
-    public function sub()
-    {
-        return view('laralum_payments::sub');
-    }
-
-    public function subpost(Request $request)
-    {
-        $user = User::first();
-        $user->newSubscription('main', 'premium')->create($request->stripeToken);
     }
 
 }

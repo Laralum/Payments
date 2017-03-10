@@ -6,5 +6,8 @@ Route::group([
         'namespace' => 'Laralum\Payments\Controllers',
         'as' => 'laralum::'
     ], function () {
+
+        Route::get('/payments', 'PaymentsController@index')->name('payments.index');
+
         Route::post('payments/settings/update', 'PaymentsController@updateSettings')->name('payments.settings.update');
 });

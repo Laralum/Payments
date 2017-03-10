@@ -1,0 +1,8 @@
+{
+    "items": [
+        {
+            "trans": "laralum_payments::general.payments",
+            "route": "laralum::payments.index"
+        }
+    ]
+}
