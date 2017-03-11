@@ -1,7 +1,10 @@
 <?php
 
 Route::group([
-        'middleware' => ['api'],
+        'middleware' => [
+            'web', 'laralum.base', 'laralum.auth', 'throttle:60,1',
+            'can:access,Laralum\Payments\Models\Settings',
+        ],
         'prefix' => config('laralum.settings.api_url'),
         'namespace' => 'Laralum\Payments\Controllers',
         'as' => 'laralum_api::'

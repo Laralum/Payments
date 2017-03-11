@@ -28,6 +28,11 @@ class PaymentsServiceProvider extends ServiceProvider
      */
     protected $permissions = [
         [
+            'name' => 'Payments Access',
+            'slug' => 'laralum::payments.access',
+            'desc' => "Grants access to payments",
+        ],
+        [
             'name' => 'Payments Settings',
             'slug' => 'laralum::payments.settings',
             'desc' => "Allows edititing the payments settings",

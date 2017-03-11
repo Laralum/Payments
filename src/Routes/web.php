@@ -1,7 +1,10 @@
 <?php
 
 Route::group([
-        'middleware' => ['web', 'laralum.base', 'laralum.auth'],
+        'middleware' => [
+            'web', 'laralum.base', 'laralum.auth',
+            'can:access,Laralum\Payments\Models\Settings',
+        ],
         'prefix' => config('laralum.settings.base_url'),
         'namespace' => 'Laralum\Payments\Controllers',
         'as' => 'laralum::'

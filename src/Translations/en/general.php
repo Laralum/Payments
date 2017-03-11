@@ -20,6 +20,11 @@ return [
     'paid'                  => 'Paid',
     'not_paid'              => 'Not Paid',
     'no_keys_set'           => 'You need to setup both of the stipe keys to see this page.',
+    'customers'             => 'Customers',
+    'email'                 => 'Email',
+    'description'           => 'Description',
+    'live_mode'             => 'Live Mode',
+    'test_mode'             => 'Test Mode',
 
     'stripe_key'            => 'Stripe Publishable Key',
     'stripe_key_ph'         => 'Enter your stripe publishable key',

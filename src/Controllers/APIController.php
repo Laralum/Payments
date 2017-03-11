@@ -52,4 +52,5 @@ class APIController extends Controller
       {
           return Customer::all($request->all());
       }
+
 }

@@ -23,6 +23,17 @@ class SettingsPolicy
     }
 
     /**
+     * Determine if the current user can access the payments module.
+     *
+     * @param  mixed  $user
+     * @return bool
+     */
+    public function access($user)
+    {
+        return User::findOrFail($user->id)->hasPermission('laralum::payments.access');
+    }
+
+    /**
      * Determine if the current user can edit the payments settings.
      *
      * @param  mixed  $user

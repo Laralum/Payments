@@ -17,7 +17,13 @@
             @if($settings->stripe_key and $settings->stripe_secret)
                 <div class="uk-width-1-1@m uk-width-1-2@l">
                     <div class="uk-card uk-card-default uk-card-body">
-                        <span class="statistics-text">@lang('laralum_payments::general.pending_balance')</span><br />
+                        <span class="statistics-text">
+                            @lang('laralum_payments::general.pending_balance')
+                            <span class="uk-label" v-bind:class="[balance.livemode ? 'uk-label-success' : 'uk-label-warning']">
+                                @{{ balance.livemode ? "@lang('laralum_payments::general.live_mode')" : "@lang('laralum_payments::general.test_mode')" }}
+                            </span>
+                        </span>
+                        <br />
                         <span class="statistics-number">
                             <span class="money" :data-ccy="balance.pending[0].currency.toUpperCase()">
                                 @{{ (balance.pending[0].amount / 100).toFixed(2) }}
@@ -27,7 +33,13 @@
                 </div>
                 <div class="uk-width-1-1@m uk-width-1-2@l">
                     <div class="uk-card uk-card-default uk-card-body">
-                        <span class="statistics-text">Available Balance</span><br />
+                        <span class="statistics-text">
+                            @lang('laralum_payments::general.available_balance')
+                            <span class="uk-label" v-bind:class="[balance.livemode ? 'uk-label-success' : 'uk-label-warning']">
+                                @{{ balance.livemode ? "@lang('laralum_payments::general.live_mode')" : "@lang('laralum_payments::general.test_mode')" }}
+                            </span>
+                        </span>
+                        <br />
                         <span class="statistics-number">
                             <span class="money" :data-ccy="balance.available[0].currency.toUpperCase()">
                                 @{{ (balance.available[0].amount / 100).toFixed(2) }}
@@ -35,7 +47,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="uk-width-1-1">
+                <div class="uk-width-1-1@m uk-width-1-2@l">
                     <div class="uk-card uk-card-default">
                         <div class="uk-card-header">
                             @lang('laralum_payments::general.payments')
@@ -63,6 +75,31 @@
                                                 </span>
                                             </td>
                                             <td>@{{ moment.unix(charge.created).fromNow() }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-width-1-1@m uk-width-1-2@l">
+                    <div class="uk-card uk-card-default">
+                        <div class="uk-card-header">
+                            @lang('laralum_payments::general.customers')
+                        </div>
+                        <div class="uk-card-body">
+                            <div class="uk-overflow-auto">
+                                <table class="uk-table uk-table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>@lang('laralum_payments::general.email')</th>
+                                            <th>@lang('laralum_payments::general.date')</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="customer in customers">
+                                            <td>@{{ customer.email }}</td>
+                                            <td>@{{ moment.unix(customer.created).fromNow() }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -124,6 +161,11 @@
                             this.charges = result['data'];
                         }.bind(this));
                     },
+                    getCustomers: function() {
+                        $.post("{{ route('laralum_api::payments.customers') }}", function(result) {
+                            this.customers = result['data'];
+                        }.bind(this));
+                    },
                     setCurrency: function() {
                         OSREC.CurrencyFormatter.formatEach('.money');
                         $('.money').each(function() {
@@ -135,6 +177,7 @@
                 created: function() {
                     this.getBalance();
                     this.getCharges();
+                    this.getCustomers();
                 },
                 updated: function() {
                     this.setCurrency()
