@@ -20,7 +20,7 @@ class APIController extends Controller
      */
      public function __construct()
      {
-         Stripe::setApiKey(Settings::first()->stripe_secret);
+         Stripe::setApiKey(decrypt(Settings::first()->stripe_secret));
      }
 
     /**

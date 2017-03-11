@@ -4,6 +4,11 @@
 @section('subtitle', __('laralum_payments::general.payments_desc'))
 @section('css')
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<style>
+    [v-cloak] {
+        display: none;
+    }
+</style>
 @endsection
 @section('breadcrumb')
     <ul class="uk-breadcrumb">
@@ -12,7 +17,7 @@
     </ul>
 @endsection
 @section('content')
-    <div class="uk-container uk-container-large" id='payments_app'>
+    <div class="uk-container uk-container-large" id='payments_app' v-cloak>
         <div uk-grid>
             @if($settings->stripe_key and $settings->stripe_secret)
                 <div class="uk-width-1-1@m uk-width-1-2@l">

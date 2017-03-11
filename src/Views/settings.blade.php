@@ -12,7 +12,7 @@
                 <div class="uk-margin">
                     <label class="uk-form-label">@lang('laralum_payments::general.stripe_key')</label>
                     <div class="uk-form-controls">
-                        <input value="{{ old('stripe_key', $settings->stripe_key ? $settings->stripe_key : '') }}" name="stripe_key" class="uk-input" type="text" placeholder="@lang('laralum_payments::general.stripe_key_ph')">
+                        <input value="{{ old('stripe_key', $settings->stripe_key ? decrypt($settings->stripe_key) : '') }}" name="stripe_key" class="uk-input" type="text" placeholder="@lang('laralum_payments::general.stripe_key_ph')">
                         <small class="uk-text-meta">@lang('laralum_payments::general.stripe_key_hp')</small>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
                 <div class="uk-margin">
                     <label class="uk-form-label">@lang('laralum_payments::general.stripe_secret')</label>
                     <div class="uk-form-controls">
-                        <input value="{{ old('stripe_secret', $settings->stripe_secret ? $settings->stripe_secret : '') }}" name="stripe_secret" class="uk-input" type="text" placeholder="@lang('laralum_payments::general.stripe_secret_ph')">
+                        <input value="{{ old('stripe_secret', $settings->stripe_secret ? decrypt($settings->stripe_secret) : '') }}" name="stripe_secret" class="uk-input" type="text" placeholder="@lang('laralum_payments::general.stripe_secret_ph')">
                         <small class="uk-text-meta">@lang('laralum_payments::general.stripe_secret_hp')</small>
                     </div>
                 </div>

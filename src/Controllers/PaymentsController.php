@@ -29,7 +29,10 @@ class PaymentsController extends Controller
     {
         $this->authorize('update', Settings::class);
 
-        Settings::first()->update($request->all());
+        Settings::first()->update([
+            'stripe_key' => $request->stripe_key ? encrypt($request->stripe_key) : null,
+            'stripe_secret' => $request->stripe_secret ? encrypt($request->stripe_secret) : null,
+        ]);
 
         return redirect()->route('laralum::settings.index', ['p' => 'Payments'])->with('success', __('laralum_payments::general.updated_settings'));
     }
