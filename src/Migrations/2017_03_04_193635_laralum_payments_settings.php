@@ -17,8 +17,8 @@ class LaralumPaymentsSettings extends Migration
         if (!Schema::hasTable('laralum_payments_settings')) {
             Schema::create('laralum_payments_settings', function ($table) {
                 $table->increments('id');
-                $table->string('stripe_key')->nullable();
-                $table->string('stripe_secret')->nullable();
+                $table->text('stripe_key')->nullable();
+                $table->text('stripe_secret')->nullable();
                 $table->timestamps();
             });
             Settings::create([]);
