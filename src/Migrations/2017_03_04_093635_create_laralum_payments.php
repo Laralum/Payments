@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Laralum\Users\Models\User;
 
-class LaralumPayments extends Migration
+class CreateLaralumPayments extends Migration
 {
     /**
      * Run the migrations.
