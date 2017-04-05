@@ -19,4 +19,12 @@ class Settings extends Model
      * @var array
      */
     protected $fillable = ['stripe_key', 'stripe_secret'];
+
+    /**
+     * Return true if the payments are ready.
+     */
+    public function ready()
+    {
+        return $this->stripe_key && $this->stripe_secret;
+    }
 }

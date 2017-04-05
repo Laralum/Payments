@@ -19,7 +19,7 @@
 @section('content')
     <div class="uk-container uk-container-large" id='payments_app'>
         <div uk-grid>
-            @if($settings->stripe_key and $settings->stripe_secret)
+            @if ($settings->ready())
                 <div class="uk-width-1-1@m uk-width-1-2@l" v-cloak>
                     <div class="uk-card uk-card-default uk-card-body">
                         <span class="statistics-text">
