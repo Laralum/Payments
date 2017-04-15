@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Laralum\Users\Models\User;
 
 class CreateLaralumPayments extends Migration
@@ -14,7 +14,7 @@ class CreateLaralumPayments extends Migration
      */
     public function up()
     {
-        $table_name = with(new User)->getTable();
+        $table_name = with(new User())->getTable();
         $table_columns = ['stripe_id', 'card_brand', 'card_last_four', 'trial_ends_at'];
 
         if (Schema::hasTable($table_name) and !Schema::hasColumns($table_name, $table_columns)) {
@@ -48,7 +48,7 @@ class CreateLaralumPayments extends Migration
      */
     public function down()
     {
-        $table_name = with(new User)->getTable();
+        $table_name = with(new User())->getTable();
         $table_columns = ['stripe_id', 'card_brand', 'card_last_four', 'trial_ends_at'];
 
         if (Schema::hasTable($table_name) and Schema::hasColumns($table_name, $table_columns)) {

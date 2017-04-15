@@ -2,8 +2,8 @@
 
 namespace Laralum\Payments;
 
-use Stripe\Stripe;
 use Laralum\Payments\Model\Settings;
+use Stripe\Stripe;
 
 class Payments
 {
