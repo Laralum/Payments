@@ -2,12 +2,10 @@
 
 namespace Laralum\Payments;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Gate;
-
+use Illuminate\Support\ServiceProvider;
 use Laralum\Payments\Models\Settings;
 use Laralum\Payments\Policies\SettingsPolicy;
-
 use Laralum\Permissions\PermissionsChecker;
 
 class PaymentsServiceProvider extends ServiceProvider
@@ -30,14 +28,15 @@ class PaymentsServiceProvider extends ServiceProvider
         [
             'name' => 'Payments Access',
             'slug' => 'laralum::payments.access',
-            'desc' => "Grants access to payments",
+            'desc' => 'Grants access to payments',
         ],
         [
             'name' => 'Payments Settings',
             'slug' => 'laralum::payments.settings',
-            'desc' => "Allows edititing the payments settings",
+            'desc' => 'Allows edititing the payments settings',
         ],
     ];
+
     /**
      * Bootstrap the application services.
      *
@@ -65,7 +64,7 @@ class PaymentsServiceProvider extends ServiceProvider
     }
 
     /**
-     * I cheated this comes from the AuthServiceProvider extended by the App\Providers\AuthServiceProvider
+     * I cheated this comes from the AuthServiceProvider extended by the App\Providers\AuthServiceProvider.
      *
      * Register the application's policies.
      *
