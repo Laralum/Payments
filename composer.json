@@ -2,9 +2,9 @@
     "name": "laralum/payments",
     "description": "Notifications module for laralum",
     "require": {
-		"laralum/laralum": "dev-master",
+	"laralum/laralum": "1.*",
         "stripe/stripe-php": "4.*"
-	},
+    },
     "license": "MIT",
     "authors": [
         {
