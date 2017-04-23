@@ -92,7 +92,7 @@ class Payment
         if (!Settings::first()->ready()) {
             return false;
         }
-        
+
         if ($this->ammount != 0) {
             try {
                 Charge::create([
