@@ -19,7 +19,9 @@ class Payment
      */
     public function __construct()
     {
-        Stripe::setApiKey(decrypt(Settings::first()->stripe_secret));
+        if (Settings::first()->ready()) {
+            Stripe::setApiKey(decrypt(Settings::first()->stripe_secret));
+        }
     }
 
     /**
@@ -87,6 +89,10 @@ class Payment
      */
     public function pay()
     {
+        if (!Settings::first()->ready()) {
+            return false;
+        }
+        
         if ($this->ammount != 0) {
             try {
                 Charge::create([
