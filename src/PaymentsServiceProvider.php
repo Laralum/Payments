@@ -57,8 +57,6 @@ class PaymentsServiceProvider extends ServiceProvider
 
         $this->loadMigrationsFrom(__DIR__.'/Migrations');
 
-        $this->app->register('Laravel\\Cashier\\CashierServiceProvider');
-
         // Make sure the permissions are OK
         PermissionsChecker::check($this->permissions);
     }
