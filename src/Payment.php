@@ -26,6 +26,7 @@ class Payment
      * Setup the payment ammount.
      *
      * @param int $ammount
+     *
      * @return \Laralum\Payments\Payment
      */
     public function ammount($ammount)
@@ -39,6 +40,7 @@ class Payment
      * Setup the payment currency.
      *
      * @param string $currency
+     *
      * @return \Laralum\Payments\Payment
      */
     public function currency($currency)
@@ -52,6 +54,7 @@ class Payment
      * Setup the payment source token.
      *
      * @param string $source
+     *
      * @return \Laralum\Payments\Payment
      */
     public function source($source)
@@ -65,6 +68,7 @@ class Payment
      * Setup the payment description.
      *
      * @param string $description
+     *
      * @return \Laralum\Payments\Payment
      */
     public function description($description)
@@ -78,6 +82,7 @@ class Payment
      * Execute the payment and return true if succeeded.
      *
      * @param string $description
+     *
      * @return \Laralum\Payments\Payment
      */
     public function pay()
@@ -90,8 +95,9 @@ class Payment
                     'source'      => $this->source,
                     'description' => $this->description,
                 ]);
-            } catch (Exception $e){
+            } catch (Exception $e) {
                 $this->error = $e;
+
                 return false;
             }
         }
