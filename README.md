@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laralum.com"><img height="150" src="https://avatars1.githubusercontent.com/u/22253051"></a></p>
+<p align="center"><a href="https://laralum.aitorriba.com"><img height="150" src="https://avatars1.githubusercontent.com/u/22253051"></a></p>
 
 <h1 align="center">Payments</h1>
 
@@ -18,7 +18,7 @@ payment gateway, but more gateways will be added soon.
 ## Documentation
 
 <p align="center">
-<a href="https://laralum.com/docs/payments"><img height="120" src="http://i.imgur.com/47WnADd.png"></a>
+<a href="https://laralum.aitorriba.com/docs/payments"><img height="120" src="http://i.imgur.com/47WnADd.png"></a>
 </p>
 
 ## License
